@@ -8,12 +8,149 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="112dp"
+        android:text="Escolha do App"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Toque para escolher"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgapp" />
+
+    <TextView
+        android:id="@+id/results"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginBottom="381dp"
+        android:text="resultado"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+    <ImageView
+        android:id="@+id/imgapp"
+        android:layout_width="101dp"
+        android:layout_height="113dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.191"
+        app:srcCompat="@drawable/padrao" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="99dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="paper"
+        app:layout_constraintEnd_toStartOf="@+id/imageView9"
+        app:layout_constraintStart_toEndOf="@+id/imageView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/papel" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="99dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:onClick="rock"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/pedra" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="99dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:onClick="scissors"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/tesoura" />
+
+    <TextView
+        android:id="@+id/textWin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:text="Ganhou"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/lost"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/results" />
+
+    <TextView
+        android:id="@+id/wins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.31"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textWin" />
+
+    <TextView
+        android:id="@+id/lost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:text="Perdeu"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textWin"
+        app:layout_constraintTop_toBottomOf="@+id/results" />
+
+    <TextView
+        android:id="@+id/numberLost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.547"
+        app:layout_constraintStart_toEndOf="@+id/wins"
+        app:layout_constraintTop_toBottomOf="@+id/lost" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="69dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="68dp"
+        android:onClick="restart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/rerun" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
