@@ -2,6 +2,7 @@ package com.example.projectjoke;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,17 +16,25 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    ImageView imageApp;
+    ImageView imageApp,rockImage,paperImage;
+    ImageView scissorsImage;
+
+
     private int victories = 0;
     private int losses = 0;
 
 
+    @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         imageApp = findViewById(R.id.imgapp);
+
+        rockImage = findViewById(R.id.rock);
+        paperImage = findViewById(R.id.paper);
+        scissorsImage = findViewById(R.id.scissors);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -85,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         textResults.setText("Você Ganhou!");
         victories++;
         wins.setText(String.valueOf(victories));
+        setOpacity();
 
      }
      else if (result == choices) textResults.setText("Empatou!");
@@ -98,8 +108,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    }
 
+    }
     public void restart(View view){
         TextView wins = findViewById(R.id.wins);
         TextView losts = findViewById(R.id.numberLost);
@@ -109,7 +119,31 @@ public class MainActivity extends AppCompatActivity {
         wins.setText(String.valueOf(victories));
 
         System.out.println("Clicou no Reset");
+
     }
+    View.OnTouchListener touchListener = new View.OnTouchListener() {
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    v.setAlpha(0.5f); // diminui opacidade ao clicar
+                    break;
+                case MotionEvent.ACTION_UP:
+                case MotionEvent.ACTION_CANCEL:
+                    v.setAlpha(1.0f); // volta ao normal
+                    break;
+            }
+            return false; // return false para continuar tratando como click
+        }
+
+    };
+    @SuppressLint("ClickableViewAccessibility")
+    public void setOpacity(){
+        rockImage.setOnTouchListener(touchListener);
+        paperImage.setOnTouchListener(touchListener);
+        scissorsImage.setOnTouchListener(touchListener);
+    }
+
 
 
 }
